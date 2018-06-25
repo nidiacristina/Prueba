@@ -32,7 +32,28 @@
 
 8) After modifying, commiting the changes
 
+	git commit -m "some_message"
 
+9) Listing the commits in reverse cronological order. THe most recent commits show up first
 
+	git log
+   
+   To show only the last two entries
+	
+	git log -p -2
+
+   Specifying a format, time and in reference to an specific function
+	
+	git log --pretty=format:"%h - %an, %ar : %s"
+	git log --since=2.weeks
+	git log -S function_name
+
+10) Pushing 
+
+	git push origin master	
+
+11) Reseting to that specified commit
+
+	git reset --hard a1e8fb5
 
 
