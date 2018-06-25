@@ -1,0 +1,227 @@
+These two sections of tasks did not merge properly when attempting to rebase
+fourier-transverse with master.  Someone needs to identify which tasks have
+been completed.
+
+TASKS FROM master (background-currents) BRANCH:
+* Check to see whether dx = eta_x * deta + xi_x * dxi is correct.
+
+* Fix the filtering operation to use a unitary filtering matrix.
+
+* The CFL calculation is broken for deformed grids; fix.  The delta_x and delta_z terms are not correctly calculated in the deformed case.
+
+TASKS FROM fourier-transverse BRANCH:
+
+Tasks to be completed:
+----------------------
+* Check that derivatives and calculus are being computed correctly.
+
+* Enable the array copy warning.
+
+* logflag: a lot of things are computed but not displayed unless the logflag is set to true.  Why not just not compute them??
+
+* For test case 2, the coarse kernel computation doesn't converge.  Check to make sure the deflation matrices are being set up correctly.
+
+* Review the process by which the smpm violates the density bounds.  Do a three parameter study on (n, filter_order, interfacial averaging strength ).
+
+* Investigate whether permutations can be computed faster if you don't compute the indices and instead pass them in as a permutation vector.  It is unclear whether this is faster since there I'm not sure that permutations are flop-limited (they may be slow because of memory accesses), but it is worth checking out since my code spends a _ton_ of time doing permutations.
+
+* Pass in boundary conditions independent of the initial conditions.
+
+Completed Tasks:
+----------------
+* Port compute_gmres_householder from the poisson code (the fast version) into the main code.
+
+* The check_consistency function has been put on temporary hold.  Fix when you get time later. (GAR: This function has been eliminated.)
+
+* complex data types need to be elevated to double complex.
+
+* Add periodic boundary conditions (GAR: Not sure what Sumedh meant with Periodic boundary conditions.)
+
+* Both apply_viscous_bc.f90 and apply_diffusion_bc.f90 need to be fixed in the choice of penalty parameters.  Furthermore, I think I can deprecate use of apply_diffusion_bc.f90 (GAR: Penalty formulation seems to be correct now. There is no apply_diffusion_bc.f90).
+
+* apply_viscous_bc doesn't actually work for Neumann BCs.  I have never had to use it before, but it's worth noting. (GAR: We now have the same formulation as in Sumedh's Thesis, which appears to be correct.)
+
+* The main function is littered with a lot of code.  Reduce its size by compartmentalizing things that can be compartmentalized.  E.g., but the viscous and diffusion solves in their own routines.  Put time-advancement in its own routines.  Put error checking in its own routine.
+
+* Remove the restart parameter and option. (GAR: This task was no longer necessary.)
+
+* The apply_fft code creates complex arrays that are packed and sparse.  This fucks up my 3D poisson solver.  Fix this.
+
+* Update GMRES solver to be not stupid (e.g. import the fast GMRES solver from the 3D Poisson code).
+
+* I need a complex GMRES solver.
+
+* Update the Poisson solver to use complex arithmetic.
+
+* Write a sync_ranks routine for complex data.
+
+* Build BLAS wrappers to do real matrix/complex vector arithmetic for the following routines:
+   - DGETRS
+   - DGEMV
+
+* Write a 3D interfacial averaging code.
+
+* What are the boundary conditions on the y-velocity on the bottom/right/top/left walls?
+
+* Eliminate middle blocks from capacitance matvec; they're zero.
+
+* Port over the setup stuff from the Poisson code.
+
+* Figure out a way to get rid of the perfect_shuffles in compute_gradient_and_laplacian.f90
+
+* Re-compute the lock-exchange results and compare timings and solution.  I haven't actually tested either the split-ranks formulation or the deformed external boundary formulation yet.
+
+* Write some logic to take care of how gmres iteration flags are set.  Namely, if gmres_maxit == gmres_restart then you probably don't want gmres_maxit exceeding the matrix dim.  If gmres_restart << gmres_maxit, then it's probably alright if gmres_maxit > matrix dim.  This might be a good warning/error to throw inside of compute_gmres_householder.
+
+* How does the conditioning properties of C change as a function of facrobin_ppe?  Like, what is K( C( facrobin_PPE ))?
+
+* Make the number of timesteps before dumping out a _field file iteration an input parameter, nominally set to 25 or 50.  Make this the same amount of timesteps before errors are computed, even if the check error flags have been set to off.
+
+* Setup a process by which the null vectors are written to a file, say runname_uL and runname_uC.  Then, give the user the option of passing in those vectors instead of computing them, since that computation is really slow.
+
+* The _init file has parameters that aren't used: the derivatives of rho0_bar and p0.  These should be eliminated.
+
+* Why is the main code running a 12,500 DOF problem take 3 seconds per Poisson solve?  This is like instantaneous in the Poisson code.
+
+* Port over the preconditioners for the capacitance matrix from the poisson code.
+
+* Write code to gather data onto root and write it to a field file.
+
+* xC_previous is unset.
+
+* My Parallel GMRES implementation will require an update; it should be passed in displacement and recv_count vectors.
+
+* The Poisson capacitance matvec isn't actually putting any of the blocks it gets in the right place.
+
+* I need to think about how to split up the grid for the following two computations: 1. Sparse Cx matvec, both the input and the output grid.  2. Sparse Bx matvec.  The input grid split is inherited from the full solver, but what about the output grid?  It is also of dimension k.
+
+* I think since Bx inherits the grid decomposition from L, the only sane way to split up the Bx matvec's output is with a [ s, 2s, 2s, 2s, ... , s ] split.  Then, applying Cx to this product is also straightforward since Cx requires an [ s, 2s, 2s, ... , s ] split on the right.  The tricky part is the output of Cx; how are we returning that?
+
+* The only sane thing to do is to use the same decomposition of the k-grid for the output of Cx.  We will then incur some communications costs, but we were going to have to anyways.  So, the output of Cx is split [ s, 2s, 2s, ... , s ].  Thus Bx returns an s/2s/s split, Cx expects an s/2s/s split, and Cx returns an s/2s/s split.  These always will divide the number of ranks.
+
+* Rewrite apply filter so that it doesn't have to use permutation matrices.  Okay this is not worth my effort, this is 0.11% of the total computation time.
+
+* Make MPI = 1 runnable.
+
+* When w > 1, the block B matrices I store ( pB_poisson ) are needlessly large.  I think I can get away with storing far less of the sparse B matrices.  To check this, for a model with w > 1 write out the pB_poisson matrix to disk, load it into MATLAB and see if my intuition is correct.
+
+* In setup_poisson_solver it looks like a bunch of matrices are allocated even on the root process.  Does this really have to happen?  It's going to destroy my root block's memory footprint.
+
+* Support reading an _in file for the mem checker; it should be able to take an input file and the # of processors you want to run on and return estimates of memory usage.
+
+* The Poisson problem's BC penalty parameter is tau = 1/\omega.  No Jacobians.  When I implement that, the Poisson problem immediately becomes hard for the inverse iteration.  WTF.  Jorge's code uses Jacobians in the penalty term in the Poisson problem.  How come?
+
+* Dump the factored setup matrices to disk so that you don't have to run setup again after it's computed once.
+
+* Add functionality to read in:
+   1. initial conditions
+   2. boundary conditions and their values
+   3. the mesh (I refuse to take responsibility for meshing; my code is a solver, not a mesher).
+
+* Add a way to set the background stratification.  A background stratified flow might require the addition of more terms into the vertical momentum equation.
+
+* Make a pass through the code to make sure comments make sense.
+
+* I have figured out what is wrong with the 16x16 case and fixed it (it is that the penalty factor on the PPE was 100 instead of 10,000).  To get this complete I need to have a flag that lets me set the boundary conditions independent of the initial conditions somehow.  Get this implemented and sent to Greg ASAP.
+
+* Make compute_laplacian_serial.f90 use the metric terms that I compute for compute_gradient_and_laplacian.f90.  Note: this will really only impact setup time, not run-time.
+
+* In main I use perfect shuffles on the pressure to zero the pressure boundary condition.  Get ride of those using strided indexing.
+
+* In my transport equation (and nonlinear advection) I check for inflow on _both_ sides of an interface.  Could this be what is driving my lock-exchange problem to stop conserving mass?  Check to see whether I ever apply inflow conditions to both sides of an interface in an actual run.  If so, I believe this is non-physical.
+
+* Remove BC.f90, patching.f90, apply_streamfunction_matrix.f90, apply_poisson_capacitance.f9, apply_viscous_z_opt.f90
+
+* Get the 16x16 subdomain case to work for the lid-driven cavity.
+
+* P = 0 and R = 0 are two memcopys in compute_gmres_householder that are not necessary.  Delete and them and then compare compute times for the large case.
+
+* Figure out how to zero the gradient of the pressure on no-slip boundaries.
+
+* Make the type of boundary conditions an input parameter, and also make the bc value an input parameter; if uniform pass in the value by the _in file, otherwise my program should compute it from the _init file data.
+
+* It sure looks like if w = 1 solve_subblock_poisson is going to break since for w=1 there should be no subblock capacitance matrix.
+
+* The function apply_*_bc.f90 does not appear to care about whether the BC is Dirichlet or Neumann.
+
+* I saw "For saving memory capacitance assembly will be blocked into 3 blocks."  -- This led to a TRIPLING of memory usage!  Case: large_in with np = 21, OMP_NUM_THREADS=2.  Definitely investigate!
+
+* gfortran includes intrinsics get_argument_count() from f2003.  Use these to add some more input arguments (like possibly thread counts or something).
+
+* Add a second diffusion Woodbury solver for different viscosity of momentum (consult theory to see if I can get away with just one solver).
+
+* For the subx160 case, with OMP_NUM_THREADS > 1, I get a segfault for accessing memory out of bounds.  Why is this happening?
+
+* For the subx160 case, I have a stack overflow with ulimit -s reporting 8192 kB allocated for the stack.  Why am I getting a stack overflow?
+
+* A lot of the permutations I use are unnecessary.  I can compute derivatives in eta by using the stride option in BLAS, and I can also use strided indexing like in apply_viscous_bc to access arrays that need to be eta-indexed.
+
+* Test the Poisson problem with a Gaussian source function.
+
+* Make xi-first indexing the default throughout my code.
+
+* Figure out why the gmres householder code is returning an answer that doesn't satisfy | Ax -  b | < TOL*|b| for large problems. 
+
+* Implement boundary conditions for the pressure Poisson problem.  See, if it helps, Jorhe's code BCpresrhsW.f (boundary conditions for pressure applied to the rhs in a weak sense). The idea is just to subtract from the pressure input/output vector the values of the boundary conditions.  I'll need to store the linear terms for three time-steps prior.  The boundary conditions are computed in pressureBC.f as variables pbc.   
+
+* Add 4th-order Adams-Bashforth timestepping. 
+
+* Distribute the capacitance matvec over all the cores by partitioning C row-wise.  Each MPI process will be reponsible for a (2*s x k) block of C.
+
+* In computing n-grad-u, I can pre-compute n\cdot\nabla at meshing time, since the metric terms don't change.  This will save computations later.
+
+* EASY: In setup_poisson_solver iiB is allocated but only used as a storage device for B_poisson.  I don't think it needs to exist at all. 
+
+* Investigate my implementation of the advection code.  Am I using u-dot-n of the _other_ subdomain in the penalty patching term? 
+
+* Write an input file parses that is not order-dependent and ignores comments. 
+
+* Removing references to cgp and scp causes an error in the analytical solution.  Needs addressing. 
+
+* Remove all references to cgp and scp from the code.
+
+* Design a mesh file format, and write a script to read it in.  Important will be the order in which the nodes in the mesh file are stored.
+
+* A lot of my function names need to change.  Any solve_PARALLEL_WOODBURY function needs to be renamed to solve_poisson or solve_diffusion.  setup_PARALLEL... needs to be setup_woodbury_solver.
+
+* Deal with the Winitialized warnings that may be spurious.
+
+* Rewrite patching functions with mesh deformation maps to compute n-dot-grad terms (see e.g. the advection code).
+
+* Use the maps in mod_mesh_deformation_maps to compute derivatives.  Eliminate mod_jacobian.
+
+* Clean up the sublock_solve codes to reduce heap size.  A lot of the ii* variables don't need to exist.
+
+* The savings in memory I made to solve_subblock_poisson need to be translated to solve_subblock_diffusion.
+
+* Write and test an apply_poisson_capacitance.f90 routine.  Calculate GMRES with it.  Write a driver_gmres_poisson.f90 subroutine to do this testing.
+
+* Split setup_PARALLEL_WOODBURY_SOLVER.f90 into setup_poisson_solver and setup_diffusion_solver (and later, setup_viscous_solver ).
+
+* In setup_PARALLEL_WOODBURY_SOLVER.f90, iiE is a dimblock-by-k matrix made on each process, but I don't need the whole thing at once since I'm serializing the assembly of C anyways.  Rewrite this method so that iiE isn't formed except for a few columns at a time, so that instead of dimblock-by-k we only store dimblock-by-cols_per_block.  For the 200k DOF case, iiE on each process takes about 500 MB, so it's time to fix this.
+
+* Parallelize!
+
+* Pass the iiC blocks on each process to the root pC_* column-by-column.  This will increase comms but reduce the memory footprint overall.
+
+* Fix race condition in solve_subblock_*
+
+* Parallelize the subblock solves with openMP (perhaps set a different thread count for them, like OMP_SUB_SOLVE_THREADS )
+
+* Take a look at the implementation of the parallel setup routine.  At some point it looks like every process holds a copy of iiC_poisson and iiC_diffusion.  This is a tremendous waste of memory.  After the construction of iiC_poisson, those should be reduced into root, and then deallocated.  Then the same for iiC_diffusion.
+
+* Parallelize apply_SMPM_PPE_TRANSPOSE (this is trivial).
+
+* Parallelize the computation of the LNSV.
+
+* Make setup_WOODBURY_SOLVER and solve_WOODBURY_* the sub process-level Woodbury setup/solve routines.
+
+* Fix the U \cdot n computation in the patching advection code.  Or, just re-write the patching advection code.
+
+* Eliminate E_diff entirely by replacing its construction in setup_WOODBURY_SOLVER.f90.
+
+* Combine setup_WOODBURY_DIFFUSION + setup_WOODBURY_POISSON into setup_WOODBURY_SOLVER
+
+* Add in functionality to partition more than one column of subdomains to one CPU by way of the nsubx_block parameter.
+
+* Rewrite the eta derivatives in apply_LAPLACIAN and apply_SMPM_ADVECTION to avoid permutations.  Consult theory.
