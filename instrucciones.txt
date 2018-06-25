@@ -1,0 +1,38 @@
+/////////////////////////////////////// Initialazing /////////////////////////////////
+1) Creating a local repository and create a README
+
+	git init Prueba
+	cd Prueba
+	gedit README
+
+2) Adding to the repository files that are on the folder
+
+	git add smaple.c
+
+3) Commiting changes 
+
+	git commit -m "some_message"
+
+4) Creating a new repository online *Use the same name I guess...)
+
+
+5) Connecting the two repositories
+	
+	git remote add origin https://github.com/user_name/Prueba.git
+
+6) Pushing what is the local repository to the online repository
+
+	git push -u origin master	
+
+7) Downloading what is inside a repository
+	
+	git clone https://github.com/nidiacristina/Prueba.git
+
+///////////////////////////////////////////// Working //////////////////////////////
+
+8) After modifying, commiting the changes
+
+
+
+
+
