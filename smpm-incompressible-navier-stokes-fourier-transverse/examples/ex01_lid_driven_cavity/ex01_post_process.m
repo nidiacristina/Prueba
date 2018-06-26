@@ -21,7 +21,9 @@ post_input_file_name = 'lid_driven_cavity_post_in';
 %% Read in a bunch of data from the SMPM simulation.
 
    % Read in the last time-step of the SMPM simulation.
+   %data = smpm_read_fieldfile( field_file_name, time_ndx );
    data = smpm_read_fieldfile( field_file_name, time_ndx );
+   
 
    % Read the initial conditions file for the SMPM simulation.
    init = smpm_read_initfile( init_file_name );

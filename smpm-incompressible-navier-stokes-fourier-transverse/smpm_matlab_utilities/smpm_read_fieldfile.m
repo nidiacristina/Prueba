@@ -59,6 +59,7 @@ else
     version = upper(varargin{2});
 end
 
+
 % Check if the user passed a character
 if ischar(version) == logical( 0 )
     fprintf('\n Input argument is not a character.')
