@@ -1,0 +1,40 @@
+#####################
+# Input file for SMPM code.
+# Generated: 29-Jun-2018 13:34:25
+#####################
+fname_runname                  = tankscale_wave_with_bg
+fname_init                     = tankscale_wave_with_bg_init.h5
+n                              = 10
+nsubx                          = 80
+nsuby                          = 1
+nsubz                          = 10
+dt                             = 0.0453319
+tend                           = 146.504
+adaptive_timestep              = .true.
+timesteps_between_writes       = 22
+timesteps_between_restarts     = 221
+timesteps_between_logs         = 11
+nu                             = 0
+nu_d                           = 0
+rho_0                          = 1000
+facrobin                       = 1000
+facrobin_ppe                   = 1000
+filter_order_xz                = 11
+filter_order_y                 = 11
+gmres_maxit_poisson            = 3000
+gmres_maxit_viscous            = 500
+gmres_tol_poisson              = 1e-07
+gmres_tol_viscous              = 1e-07
+gmres_restart_viscous          = 500
+gmres_restart_poisson          = 3000
+sponge_layer_location          = 0,1,0,1
+bc_diffusion                   = 2,2,2,2
+bc_viscous                     = 2,2,2,2
+read_bcs_from_initfile         = .false.
+apply_sponge_layer             = .true.
+check_null_error               = .false.
+check_numerical_error          = .true.
+do_interfacial_averaging       = .true.
+use_capacitance_preconditioner = .true.
+use_deflation                  = .true.
+time_scale_sponge_in_x         = 1.88602

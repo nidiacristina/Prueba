@@ -110,6 +110,7 @@ dz_min = min( dz(dz > 1e-6) );
 dt_x   = dx_min / max( abs( ux0 ) );
 dt_z   = dz_min / max( abs( uz0 ) );
 dt     = min( dt_x, dt_z ) / 3;
+dt     = min( dt_z ) / 3; %%%Change this line!! dt_x0 for some reason
 
 % Set the maximum time.
 c_wave = c;

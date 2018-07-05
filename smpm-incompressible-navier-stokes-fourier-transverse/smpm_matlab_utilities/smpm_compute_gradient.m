@@ -1,5 +1,5 @@
 function [ phi_x, phi_y, phi_z ] = smpm_compute_gradient( phi, n, mx, my, mz, x, y, z )
-% [ phi_x, phi_z  ] = smpm_compute_gradient( phi, n, mx, mz, x, z )
+% [ phi_x, phi_y, phi_z ] = smpm_compute_gradient( phi, n, mx, my, mz, x, y, z )
 %
 % Computes the gradient of a function, phi, defined in a 2D GLL grid with a
 % transverse, equally spaced, domain. The differentiation is performed in

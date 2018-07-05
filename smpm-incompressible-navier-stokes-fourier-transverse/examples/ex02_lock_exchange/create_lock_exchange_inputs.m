@@ -133,7 +133,7 @@ inputs.use_deflation                  = logical( 1 );
 
 % Specify that you want to write out data every 100th time-step though see status
 % updates every time-step.
-inputs.timesteps_between_writes       = 100;
+inputs.timesteps_between_writes       = 10;
 inputs.timesteps_between_logs         = 1;
 
 % Write the input file to disk using the SMPM input file writer.

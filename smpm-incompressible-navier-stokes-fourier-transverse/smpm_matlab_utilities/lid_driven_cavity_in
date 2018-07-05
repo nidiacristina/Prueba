@@ -1,0 +1,32 @@
+#####################
+# Input file for SMPM code.
+# Generated: 03-Jul-2018 12:28:57
+#####################
+fname_runname                  = lid_driven_cavity
+fname_init                     = lid_driven_cavity_init.h5
+n                              = 8
+nsubx                          = 16
+nsuby                          = 1
+nsubz                          = 16
+dt                             = 0.0003
+tend                           = 0.03
+timesteps_between_writes       = 1
+timesteps_between_logs         = 1
+nu                             = 0.004
+nu_d                           = 0.004
+rho_0                          = 1000
+facrobin                       = 10000
+facrobin_ppe                   = 100
+filter_order_xz                = 11
+filter_order_y                 = 11
+gmres_maxit_poisson            = 1000
+gmres_maxit_viscous            = 200
+gmres_tol_poisson              = 1e-06
+gmres_tol_viscous              = 1e-06
+bc_diffusion                   = 1,1,1,1
+bc_viscous                     = 1,1,1,1
+read_bcs_from_initfile         = .true.
+check_null_error               = .true.
+check_numerical_error          = .true.
+use_capacitance_preconditioner = .true.
+use_deflation                  = .true.

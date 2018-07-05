@@ -122,8 +122,9 @@ inputs.use_capacitance_preconditioner = logical( 1 );
 inputs.use_deflation                  = logical( 1 );
 
 % Specify that you want to write out every time-step of data.
-inputs.timesteps_between_writes       = 1;
+inputs.timesteps_between_writes       = 10;
 inputs.timesteps_between_logs         = 1;
+inputs.timesteps_between_restarts     = 1;
 
 % Write the input file to disk using the SMPM input file writer.
 smpm_write_inputfile( input_file_name, inputs );
