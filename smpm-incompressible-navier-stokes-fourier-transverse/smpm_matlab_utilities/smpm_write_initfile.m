@@ -62,7 +62,7 @@ function smpm_write_initfile( n, mx, my, mz, x, y, z, rho0, ux0, uy0, uz0, ubc0,
 
     h5write( init_file_name, '/grid/n', n );
     h5write( init_file_name, '/grid/mx', mx );
-    h5write( init_file_name, '/grid/my', my );hdf5read
+    h5write( init_file_name, '/grid/my', my );
     h5write( init_file_name, '/grid/mz', mz );
 
     % Write the grid.
