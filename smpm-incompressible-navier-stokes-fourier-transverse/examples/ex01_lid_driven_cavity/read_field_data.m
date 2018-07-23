@@ -7,69 +7,35 @@ addpath ~/Prueba/smpm-incompressible-navier-stokes-fourier-transverse/smpm_matla
 %Read the files with results inside the directory
 
 fileList = dir('*out*.h5');
+ent=zeros(length(fileList),1);
 
 for i=1:length(fileList)
 %for i=1
     data = smpm_read_fieldfile(fileList(i).name,'NEW');
+    
     %contourf(data.grid.x,data.grid.z,data.field.uz)
     
-    %%{
     x=data.grid.x;
     y=data.grid.z;
     u=data.field.ux;
     v=data.field.uz;
+    t=data.field.time;
     
-    dif=x(1,1:(end-1))-x(1,2:(end));
-    [r,cols]=find(dif==0);
+    ent(i)=sum(sum(0.5*(u.^2+v.^2).^0.5));
     
-    dif2=y(1:(end-1),1)-y(2:(end),1);
-    [rows,c]=find(dif2==0);
-    
-    x(rows,:)=[];
-    y(rows,:)=[];
-    u(rows,:)=[];
-    v(rows,:)=[];    
-    
-    x(:,cols)=[];
-    y(:,cols)=[];
-    u(:,cols)=[];
-    v(:,cols)=[]; 
-    
-    %%{
-    %figure
-    %quiver(x,y,u,v)
-
-    %sy = 0:0.1:1;
-    %sx = sy;
-    sx = diag(x);
-    sy = diag(y);   
-    
-    %[sx,sy] = meshgrid(0:1, 0:1);
+    %clf('reset')
+    %h=subplot(2,2,3);
+    %reset(h)
     clf
-    streamline(x,y,u,v,sx,sy)
-    %streamline(x,y,u,v,0,1)
-    
-    pause(0.1)
-    %pause
-    %}
-    %}
-    %{
-    X=x;
-    Y=y;
-    vx=u;
-    vy=v;
-    
-    %figure
-    pcolor(X,Y,hypot(vx,vy))
-    shading interp
-
-    sc = 1/10; 
-    hold on
-    quiver(imresize(X,sc),imresize(Y,sc),imresize(vx,sc),imresize(vy,sc),'r') 
-    pause(0.2)
-    %}
-
-    
+    plot_streamline(x,y,u,v,t)
+%     j=subplot(2,2,4);
+%     reset(j)
+%     plot_vorticity(x,y,u,v,t)  
+    %pause(0.001)
+       
 end
+
+
+saveas(gcf,['NR_250_Stream_lines_',num2str(data.field.time,2),'.png'])
 
 %figure(1)
