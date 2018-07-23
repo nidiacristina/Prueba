@@ -1,0 +1,34 @@
+#####################
+# Input file for SMPM code.
+# Generated: 18-Jul-2018 18:02:41
+#####################
+fname_runname                  = lock_exchange
+fname_init                     = lock_exchange_init.h5
+n                              = 15
+nsubx                          = 99
+nsuby                          = 1
+nsubz                          = 10
+dt                             = 0.0001
+tend                           = 30
+timesteps_between_writes       = 30000
+timesteps_between_restarts     = 150000
+timesteps_between_logs         = 15000
+nu                             = 1e-06
+nu_d                           = 1e-06
+rho_0                          = 1000
+facrobin                       = 10000
+facrobin_ppe                   = 10000
+filter_order_xz                = 11
+filter_order_y                 = 11
+gmres_maxit_poisson            = 1000
+gmres_maxit_viscous            = 1000
+gmres_tol_poisson              = 1e-08
+gmres_tol_viscous              = 1e-08
+bc_diffusion                   = 2,2,2,2
+bc_viscous                     = 2,2,2,2
+read_bcs_from_initfile         = .false.
+check_null_error               = .false.
+check_numerical_error          = .true.
+do_interfacial_averaging       = .true.
+use_capacitance_preconditioner = .true.
+use_deflation                  = .true.

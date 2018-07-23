@@ -1,0 +1,13 @@
+clc
+clear
+close all
+
+%addpath ~/Prueba/smpm-incompressible-navier-stokes-fourier-transverse/smpm_matlab_utilities/
+
+%Read the files with results inside the directory
+
+fileList = dir('*out*.h5');
+
+for i=21:100
+    delete ['lid_driven_cavity_out_0000',num2str(i),'.h5']
+end

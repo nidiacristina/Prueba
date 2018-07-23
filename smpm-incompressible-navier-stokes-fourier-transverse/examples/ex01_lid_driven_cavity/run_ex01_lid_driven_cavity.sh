@@ -10,7 +10,7 @@ fname_in="lid_driven_cavity_in" # The name of the input file.
 tag_out="lid_driven_cavity"     # All files generated will have this as a prefix.
 
 # Set the number of MPI ranks and threads.
-nranks=16   # Number of MPI ranks.
+nranks=10   # Number of MPI ranks.
 nthreads=1  # Number of OMP threads (currently the code is not threaded so this parameter is unused).
 
 ### Nothing below this line should need to be changed by the user. ###

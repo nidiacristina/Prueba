@@ -21,10 +21,10 @@ input_file_name = sprintf( '%s/%s_in', ...
 init_file_name  = sprintf( '%s_init.h5', run_name );
 
 % Set some constants related to the grid.
-n     = 8;     % The number of GLL points per direction per element.
-nsubx = 16;    % The number of x elements.
+n     = 14;     % The number of GLL points per direction per element.
+nsubx = 10;    % The number of x elements.
 nsuby = 1;     % The number of y elements.
-nsubz = 16;    % The number of z elements.
+nsubz = 10;    % The number of z elements.
 Lx    = 1.0;   % The length of the domain in the x direction.
 Ly    = 1.0;   % The length of the domain in the y direction.
 Lz    = 1.0;   % The length of the domain in the z direction.
@@ -77,7 +77,7 @@ inputs.nsuby                          = nsuby;
 inputs.nsubz                          = nsubz;
 
 % Set the final time and the time step.
-inputs.tend                           = 0.03;
+inputs.tend                           = 20;
 inputs.dt                             = 3e-4;
 
 % Set the multiplicative factors on the penalty terms.
@@ -85,8 +85,8 @@ inputs.facrobin                       = 10000;
 inputs.facrobin_ppe                   = 100;
 
 % Set the viscosity (nu) and the diffusivity (nu_d).
-inputs.nu                             = 0.0040;
-inputs.nu_d                           = 0.0040;
+inputs.nu                             = 0.0010;
+inputs.nu_d                           = 0.0010;
 
 % Set the reference density.
 inputs.rho_0                          = rho_0;
@@ -122,9 +122,9 @@ inputs.use_capacitance_preconditioner = logical( 1 );
 inputs.use_deflation                  = logical( 1 );
 
 % Specify that you want to write out every time-step of data.
-inputs.timesteps_between_writes       = 10;
-inputs.timesteps_between_logs         = 1;
-inputs.timesteps_between_restarts     = 1;
+inputs.timesteps_between_writes       = round((inputs.tend/inputs.dt)/20,0);
+inputs.timesteps_between_logs         = round((inputs.tend/inputs.dt)/20,0);
+inputs.timesteps_between_restarts     = round((inputs.tend/inputs.dt)/2);
 
 % Write the input file to disk using the SMPM input file writer.
 smpm_write_inputfile( input_file_name, inputs );
