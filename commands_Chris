@@ -1,0 +1,32 @@
+gdb ../.././smpm_incompressible_navier_stokes "lid_driven_cavity_in" "lid_driven_cavity_out" "lid_driven_cavity_restart" "lid_driven_cavity_diag" 2> "lid_driven_cavity_err" | tee "lid_driven_cavity_log"
+
+lscpu
+
+rm lid_driven_cavity_out_0000*
+
+more lid_driven_cavity_lo
+
+gdb ../../smpm_incompressible_navier_stokes
+
+../.././smpm_incompressible_navier_stokes "lid_driven_cavity_in" "lid_driven_cavity_out" "lid_driven_cavity_restart" "lid_driven_cavity_diag" 2> "lid_driven_cavity_err" | tee "lid_driven_cavity_log"
+
+gdb mpirun -n 1 ../../smpm_incompressible_navier_stokes "lid_driven_cavity_in" "lid_driven_cavity_out" "lid_driven_cavity_restart" "lid_driven_cavity_diag" 2> "lid_driven_cavity_err" | tee "lid_driven_cavity_log"
+
+
+mpiexec -n 1 ../../smpm_incompressible_navier_stokes "lid_driven_cavity_in" "lid_driven_cavity_out" "lid_driven_cavity_restart" "lid_driven_cavity_diag" 2> "lid_driven_cavity_err" | tee "lid_driven_cavity_log"
+
+mpirun -n 1 ../../smpm_incompressible_navier_stokes "lid_driven_cavity_in" "lid_driven_cavity_out" "lid_driven_cavity_restart" "lid_driven_cavity_diag" 2> "lid_driven_cavity_err" | tee "lid_driven_cavity_log"
+
+which mpiexec
+
+mpiexec --version
+
+apt search mpich2
+
+/usr/bin/mpiexec --version
+
+make clean ; make -j 8
+
+ls *blas*
+
+vim site.mk
