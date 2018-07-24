@@ -2,6 +2,7 @@
 #
 # This is a script to run the lid driven cavity test case.
 
+
 # July 2018.
 
 # Set some file names.
@@ -9,7 +10,7 @@ fname_in="vortex_dippole_collision_in" # The name of the input file.
 tag_out="vortex_dippole_collision"     # All files generated will have this as a prefix.
 
 # Set the number of MPI ranks and threads.
-nranks=16   # Number of MPI ranks.
+nranks=10   # Number of MPI ranks.
 nthreads=1  # Number of OMP threads (currently the code is not threaded so this parameter is unused).
 
 ### Nothing below this line should need to be changed by the user. ###

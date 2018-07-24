@@ -1,0 +1,109 @@
+ 24-Jul-2018 13:30:17:  ==============================================================================================
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:     Spectral Multidomain Penalty Method model for the Incompressible Navier Stokes Equations
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:  ==============================================================================================
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:  Reading configuration from vortex_dippole_collision_in
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:  Paths used:
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:     Initial conditions:  vortex_dippole_collision_init.h5
+ 24-Jul-2018 13:30:17:     Restart file (read): vortex_dippole_collision_restart.h5
+ 24-Jul-2018 13:30:17:     Setup file:          vortex_dippole_collision_setup
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:  Input information:
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:   n         =       14
+ 24-Jul-2018 13:30:17:   nsubx     =       10
+ 24-Jul-2018 13:30:17:   nsuby     =        1
+ 24-Jul-2018 13:30:17:   nsubz     =       10
+ 24-Jul-2018 13:30:17:   grid size =    19600
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:  Decomposition parameters:
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:   dim. of the Schur problem (S) =     2520
+ 24-Jul-2018 13:30:17:   dim. of local interface   (s) =      140
+ 24-Jul-2018 13:30:17:   dim. of local grid            =    19600
+ 24-Jul-2018 13:30:17:   dim. of local block       (A) =     1960
+ 24-Jul-2018 13:30:17:   num. of local blocks per rank =       10
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:  Parallelization parameters:
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:   number of MPI processes  = 1
+ 24-Jul-2018 13:30:17:   number of openMP threads = 16
+ 24-Jul-2018 13:30:17:  
+ 24-Jul-2018 13:30:17:  Reading the initialization file.
+ 24-Jul-2018 13:30:17:  Generating collocation points.
+ 24-Jul-2018 13:30:17:  Generating differentiation matrices.
+ 24-Jul-2018 13:30:17:  Generating quadrature weights.
+ 24-Jul-2018 13:30:17:  Computing the deformation maps.
+ 24-Jul-2018 13:30:17:  Computing local grid spacing.
+ 24-Jul-2018 13:30:17:  Setting up the transverse grid.
+ 24-Jul-2018 13:30:17:  Beginning Poisson matrix assembly.
+ 24-Jul-2018 13:30:17:        Completed    0.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:17:        Completed   10.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:18:        Completed   20.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:18:        Completed   30.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:19:        Completed   40.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:20:        Completed   50.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:20:        Completed   60.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:21:        Completed   70.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:21:        Completed   80.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:22:        Completed   90.0 percent of Laplacian assembly.
+ 24-Jul-2018 13:30:22:        Assembling the internal patching/boundary conditions.
+ 24-Jul-2018 13:30:24:  Beginning solver setup.
+ 24-Jul-2018 13:30:24:  Assembling/factoring block-diagonal part of the Poisson operator.
+ 24-Jul-2018 13:30:24:     Computing Schur factorization of the A-matrix.
+ 24-Jul-2018 13:30:24:        Completed   10.0 percent of factorization.
+ 24-Jul-2018 13:30:36:        Completed   20.0 percent of factorization.
+ 24-Jul-2018 13:30:48:        Completed   30.0 percent of factorization.
+ 24-Jul-2018 13:31:01:        Completed   40.0 percent of factorization.
+ 24-Jul-2018 13:31:13:        Completed   50.0 percent of factorization.
+ 24-Jul-2018 13:31:26:        Completed   60.0 percent of factorization.
+ 24-Jul-2018 13:31:38:        Completed   70.0 percent of factorization.
+ 24-Jul-2018 13:31:50:        Completed   80.0 percent of factorization.
+ 24-Jul-2018 13:32:03:        Completed   90.0 percent of factorization.
+ 24-Jul-2018 13:32:16:        Completed  100.0 percent of factorization.
+ 24-Jul-2018 13:32:28:  Assembling the Poisson-Schur matrix for each wavenumber.
+ 24-Jul-2018 13:32:31:     Completed  100.0 percent of Schur assembly.
+ 24-Jul-2018 13:32:31:  Poisson solver setup complete.
+ 24-Jul-2018 13:32:31:  Setting up 3D Block-Jacobi-Schur preconditioner.
+ 24-Jul-2018 13:32:40:  Setting up the 3D deflation-Schur preconditioner.
+ 24-Jul-2018 13:32:40:  Setting up the 3D deflation matrices.
+ 24-Jul-2018 13:32:40:  Setting up capacitance preconditioner.
+ 24-Jul-2018 13:32:48:  Setting up the deflation preconditioner.
+ 24-Jul-2018 13:32:48:  Setting up deflation matrices.
+ 24-Jul-2018 13:32:48:  Computing the left kernel vector of the poisson capacitance problem.
+ 24-Jul-2018 13:32:48:  
+ 24-Jul-2018 13:32:48:        Right null singular value of L is :  0.5272069128D-09
+ 24-Jul-2018 13:32:48:        Right null singular value of C is :  0.2299794412D-09
+ 24-Jul-2018 13:32:48:  
+ 24-Jul-2018 13:32:48:  Starting inverse iteration.
+ 24-Jul-2018 13:32:48:  
+ 24-Jul-2018 13:32:48:        Starting inverse iteration number          1
+ 24-Jul-2018 13:32:48:           shift/sigma:  0.1000000000D-05
+ 24-Jul-2018 13:33:45:           ||u^TL||   :  0.1070475692D-02
+ 24-Jul-2018 13:33:45:           ||u^TC||   :  0.4878262157D-06
+ 24-Jul-2018 13:33:45:           GMRES iter :         20
+ 24-Jul-2018 13:33:45:           GMRES error:  0.1036882287D-10
+ 24-Jul-2018 13:33:45:  
+ 24-Jul-2018 13:33:45:        Starting inverse iteration number          2
+ 24-Jul-2018 13:33:45:           shift/sigma:  0.1000000000D-05
+ 24-Jul-2018 13:34:43:           ||u^TL||   :  0.2823878220D-07
+ 24-Jul-2018 13:34:43:           ||u^TC||   :  0.1101869920D-10
+ 24-Jul-2018 13:34:43:           GMRES iter :         19
+ 24-Jul-2018 13:34:43:           GMRES error:  0.7552247063D-11
+ 24-Jul-2018 13:34:43:  
+ 24-Jul-2018 13:34:43:     Inverse iteration converged with residual:  0.1101869920D-10
+ 24-Jul-2018 13:34:43:     Building the null vector of the Poisson operator.
+ 24-Jul-2018 13:35:23:  
+ 24-Jul-2018 13:35:23:  Computing error in null space computation (slow).
+ 24-Jul-2018 13:35:40:     Error in null space computation:  0.2823878220D-07
+ 24-Jul-2018 13:35:40:     Error in capacitance null space:  0.1101866972D-10
+ 24-Jul-2018 13:35:40:  
+ 24-Jul-2018 13:35:40:  Writing to diagnostics file: vortex_dippole_collision_diag.h5
+ 24-Jul-2018 13:35:40:  Total time steps:    30000
+ 24-Jul-2018 13:35:40:  
+ 24-Jul-2018 13:35:40:  Commencing time-stepping.
+ 24-Jul-2018 13:35:40:  

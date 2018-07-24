@@ -1,0 +1,33 @@
+#####################
+# Input file for SMPM code.
+# Generated: 24-Jul-2018 12:46:57
+#####################
+fname_runname                  = vortex_dippole_collision
+fname_init                     = vortex_dippole_collision_init.h5
+n                              = 14
+nsubx                          = 10
+nsuby                          = 1
+nsubz                          = 10
+dt                             = 0.0001
+tend                           = 3
+timesteps_between_writes       = 1500
+timesteps_between_restarts     = 15000
+timesteps_between_logs         = 1500
+nu                             = 0.001
+nu_d                           = 0.001
+rho_0                          = 1000
+facrobin                       = 10000
+facrobin_ppe                   = 100
+filter_order_xz                = 11
+filter_order_y                 = 11
+gmres_maxit_poisson            = 1000
+gmres_maxit_viscous            = 200
+gmres_tol_poisson              = 1e-06
+gmres_tol_viscous              = 1e-06
+bc_diffusion                   = 1,1,1,1
+bc_viscous                     = 1,1,1,1
+read_bcs_from_initfile         = .true.
+check_null_error               = .true.
+check_numerical_error          = .true.
+use_capacitance_preconditioner = .true.
+use_deflation                  = .true.
