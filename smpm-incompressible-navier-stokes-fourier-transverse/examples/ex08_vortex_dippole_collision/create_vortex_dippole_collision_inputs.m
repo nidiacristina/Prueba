@@ -1,11 +1,15 @@
-function [input_file_name, inputs] = create_vortex_dippole_collision_inputs()
+function [input_file_name, inputs] = create_vortex_dippole_collision_inputs(varargin)
 % [input_file_name, inputs] = create_vortex_dippole_collision_inputs()
 %
 % Generates the input and initial conditions files to run a stable,
 % vortex dippole collision based on the sample provided by Clercx & Bruneau.
 %
 %
-% Takes no arguments.
+% Takes none or 4 arguments.
+%   n              - Number of GLL points per direction, per subdomain.
+%   nsubx             - Number of subdomains in the x-direction.
+%   nsuby             - Number of transverse grid points.
+%   nsubz             - Number of subdomains in the z-direction.
 %
 % Returns 2 values:
 %
@@ -21,17 +25,26 @@ input_file_name = sprintf( '%s/%s_in', ...
                            pwd, run_name );
 init_file_name  = sprintf( '%s_init.h5', run_name );
 
+if nargin == 4
+n     = varargin{1};
+nsubx = varargin{2};
+nsuby = varargin{3};
+nsubz = varargin{4};
+else    
 % Set some constants related to the grid.
-n     = 14;     % The number of GLL points per direction per element.
-nsubx = 10;    % The number of x elements.
+n     = 10;     % The number of GLL points per direction per element.
+nsubx = 24;    % The number of x elements.
 nsuby = 1;     % The number of y elements.
-nsubz = 10;    % The number of z elements.
+nsubz = 24;    % The number of z elements.
+
+end
+
 Lx    = 2.0;   % The length of the domain in the x direction.
 Ly    = 2.0;   % The length of the domain in the y direction.
 Lz    = 2.0;   % The length of the domain in the z direction.
 
 % Build the mesh using the SMPM cartesian mesh builder.
-[x, z] = smpm_build_cartesian_mesh( n, nsubx, nsubz, [-Lx, Lx], [-Lz, Lz] );
+[x, z] = smpm_build_cartesian_mesh( n, nsubx, nsubz, [-Lx/2, Lx/2], [-Lz/2, Lz/2] );
 
 % Extrude the mesh into three dimensions.
 y         = linspace( 0, Ly, nsuby );
@@ -56,7 +69,7 @@ s            = n * nsubz; % The number of grid points in the vertical direction.
 
 
 %Parameter used to calculate initial velocity 
-we           =320;        % Dimensionless extremum vorticity value
+we           =300;        % Dimensionless extremum vorticity value
 xx1          =0;          % Initial x position of the first isolated monopole
 yy1          =0.1;        % Initial z position of the first isolated monopole
 xx2          =0;          % Initial x position of the second isolated monopole
@@ -93,7 +106,7 @@ inputs.nsuby                          = nsuby;
 inputs.nsubz                          = nsubz;
 
 % Set the final time and the time step.
-inputs.tend                           = 3;
+inputs.tend                           = 2;
 inputs.dt                             = 1e-4;
 
 % Set the multiplicative factors on the penalty terms.
@@ -101,8 +114,8 @@ inputs.facrobin                       = 10000;
 inputs.facrobin_ppe                   = 100;
 
 % Set the viscosity (nu) and the diffusivity (nu_d).
-inputs.nu                             = 0.0010;
-inputs.nu_d                           = 0.0010;
+inputs.nu                             = 0.0004;
+inputs.nu_d                           = 0.0004;
 
 % Set the reference density.
 inputs.rho_0                          = rho_0;
@@ -138,9 +151,10 @@ inputs.use_capacitance_preconditioner = logical( 1 );
 inputs.use_deflation                  = logical( 1 );
 
 % Specify that you want to write out every time-step of data.
-inputs.timesteps_between_writes       = round((inputs.tend/inputs.dt)/20,0);
-inputs.timesteps_between_logs         = round((inputs.tend/inputs.dt)/20,0);
-inputs.timesteps_between_restarts     = round((inputs.tend/inputs.dt)/2);
+inputs.timesteps_between_writes       = round((inputs.tend/inputs.dt)/60,0);
+%inputs.timesteps_between_writes       = 1;
+inputs.timesteps_between_logs         = round((inputs.tend/inputs.dt)/25,0);
+inputs.timesteps_between_restarts     = round((inputs.tend/inputs.dt)/10);
 
 % Write the input file to disk using the SMPM input file writer.
 smpm_write_inputfile( input_file_name, inputs );
