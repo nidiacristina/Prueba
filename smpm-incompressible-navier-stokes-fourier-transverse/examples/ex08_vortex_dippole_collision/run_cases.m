@@ -3,7 +3,8 @@ clear
 clc
 close all
 
-addpath ~/Prueba/smpm-incompressible-navier-stokes-fourier-transverse/smpm_matlab_utilities/
+%addpath ~/Prueba/smpm-incompressible-navier-stokes-fourier-transverse/smpm_matlab_utilities/
+%addpath ../smpm_matlab_utilities/
 
 
 n     = 10;     % The number of GLL points per direction per element.
@@ -12,7 +13,7 @@ nsuby = 1;     % The number of y elements.
 nsubz = 24;    % The number of z elements.
 
 p_n=[8,10];
-p_nsubx=[12*4];
+p_nsubx=[6,8]*8;
 
 for k=1:length(p_n)  
     n=p_n(k);       
@@ -38,6 +39,7 @@ for k=1:length(p_n)
         fileList = dir('*out*.h5');
         ent=zeros(length(fileList),1);
         ens=zeros(length(fileList),1);
+        pal=zeros(length(fileList),1);
         ttime=zeros(length(fileList),1);
 
         for i=1:length(fileList)
@@ -45,6 +47,7 @@ for k=1:length(p_n)
             ttime(i)= data.field.time;
             ent(i)= compute_kinetic_energy(data);
             ens(i)= compute_enstrophy(data);
+            pal(i)= compute_palinstrophy(data);
         end
 
         save(['NR_2500_Variables_N_',num2str(n,2),'_Mx_',num2str(nsubx,2),'_Mz_',num2str(nsubz,2),'.mat'],'ent','ens','ttime')
@@ -61,6 +64,13 @@ for k=1:length(p_n)
         ylabel('\Omega (t)')
         saveas(gcf,['NR_2500_Enstrophy_N_',num2str(n,2),'_Mx_',num2str(nsubx,2),'_Mz_',num2str(nsubz,2),'.png'])
 
+        figure
+        plot(ttime,pal,'r')
+        xlabel('t')
+        ylabel('\P (t)')
+        saveas(gcf,['NR_2500_Palinstrophy_N_',num2str(n,2),'_Mx_',num2str(nsubx,2),'_Mz_',num2str(nsubz,2),'.png'])
+
+        
         close all
 
     end
