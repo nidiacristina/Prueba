@@ -46,7 +46,7 @@ w=((b-a)/2)*wi;                %Mapping weights
 int_z=int_x'*repmat(w,mz,1); %Compute the integral in z direction
 
 
-KE2 = integrate_grid_function_2D( ff, x, z, n, mx, mz-1 );
+%KE2 = integrate_grid_function_2D( ff, x, z, n, mx, mz-1 );
 kE=0.5*int_z;
 
 end

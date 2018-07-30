@@ -52,6 +52,6 @@ int_z=int_x'*repmat(w,mz,1); %Compute the integral in z direction
 
 Ens=0.5*int_z;
 
-
+%I = integrate_grid_function_2D( ff, x, z, n, mx, mz )
 end
 
