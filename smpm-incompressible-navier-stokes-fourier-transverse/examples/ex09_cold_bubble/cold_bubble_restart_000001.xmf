@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf xmlns:xi="http://www.w3.org/2001/XInclude" Version="2.0">
+    <Domain>
+        <!--
+          Individual node locations are stored slowest to fastest (X then Z), while the
+          order of individual coordinates match the solver's view of the world (the X-Z
+          plane maps to the X-Y plane).
+        -->
+        <Topology TopologyType="2DSMesh" NumberOfElements="240 240"/>
+        <Geometry GeometryType="X_Y">
+            <DataItem Dimensions="240 240" NumberType="Float" Precision="8" Format="HDF">
+            cold_bubble_restart_000001.h5:/grid/x
+            </DataItem>
+            <DataItem Dimensions="240 240" NumberType="Float" Precision="8" Format="HDF">
+            cold_bubble_restart_000001.h5:/grid/z
+            </DataItem>
+        </Geometry>
+
+        <Grid Name="restart" CollectionType="Spatial" GridType="Collection">
+            <Grid Name="solver_conditions">
+
+                <xi:include xpointer="element(/1/1/1)"/>
+                <xi:include xpointer="element(/1/1/2)"/>
+
+                <Attribute Name="ux0" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/ux0
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="ux1" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/ux1
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="ux2" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/ux2
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="uz0" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/uz0
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="uz1" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/uz1
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="uz2" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/uz2
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="rho0" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/rho0
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="rho1" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/rho1
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="rho2" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/restart/rho2
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="rho_bar" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/constant_fields/rho_bar
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="rho_bar_z" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/constant_fields/rho_bar_z
+                    </DataItem>
+                </Attribute>
+<!--
+                <Attribute Name="ubc" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/constant_fields/ubc
+                    </DataItem>
+                </Attribute>
+                <Attribute Name="dubcdz" AttributeType="Scalar" Center="Node">
+                    <DataItem DataType="Float" Precision="8" Dimensions="240 240" Format="HDF">
+                    cold_bubble_restart_000001.h5:/constant_fields/dubcdz
+                    </DataItem>
+                </Attribute>
+-->
+            </Grid>
+        </Grid>
+    </Domain>
+</Xdmf>

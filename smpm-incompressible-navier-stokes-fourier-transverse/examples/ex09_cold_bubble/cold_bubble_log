@@ -1,0 +1,454 @@
+ 13-Aug-2018 09:42:13:  ==============================================================================================
+ 13-Aug-2018 09:42:13:  
+ 13-Aug-2018 09:42:13:     Spectral Multidomain Penalty Method model for the Incompressible Navier Stokes Equations
+ 13-Aug-2018 09:42:13:  
+ 13-Aug-2018 09:42:13:  ==============================================================================================
+ 13-Aug-2018 09:42:13:  
+ 13-Aug-2018 09:42:13:  Reading configuration from cold_bubble_in
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:  Paths used:
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:     Initial conditions:  cold_bubble_init.h5
+ 13-Aug-2018 09:42:14:     Restart file (read): cold_bubble_restart.h5
+ 13-Aug-2018 09:42:14:     Setup file:          cold_bubble_setup
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:  Input information:
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:   n         =       10
+ 13-Aug-2018 09:42:14:   nsubx     =       24
+ 13-Aug-2018 09:42:14:   nsuby     =        1
+ 13-Aug-2018 09:42:14:   nsubz     =       24
+ 13-Aug-2018 09:42:14:   grid size =    57600
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:  Decomposition parameters:
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:   dim. of the Schur problem (S) =    11040
+ 13-Aug-2018 09:42:14:   dim. of local interface   (s) =      240
+ 13-Aug-2018 09:42:14:   dim. of local grid            =    14400
+ 13-Aug-2018 09:42:14:   dim. of local block       (A) =     2400
+ 13-Aug-2018 09:42:14:   num. of local blocks per rank =        6
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:  Parallelization parameters:
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:   number of MPI processes  = 4
+ 13-Aug-2018 09:42:14:   number of openMP threads = 1
+ 13-Aug-2018 09:42:14:  
+ 13-Aug-2018 09:42:14:  Reading the initialization file.
+ 13-Aug-2018 09:42:14:  Generating collocation points.
+ 13-Aug-2018 09:42:14:  Generating differentiation matrices.
+ 13-Aug-2018 09:42:14:  Generating quadrature weights.
+ 13-Aug-2018 09:42:14:  Computing the deformation maps.
+ 13-Aug-2018 09:42:14:  Computing local grid spacing.
+ 13-Aug-2018 09:42:14:  Setting up the transverse grid.
+ 13-Aug-2018 09:42:14:  Beginning Poisson matrix assembly.
+ 13-Aug-2018 09:42:14:        Completed    0.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:15:        Completed   10.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:16:        Completed   20.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:16:        Completed   30.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:17:        Completed   40.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:18:        Completed   50.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:19:        Completed   60.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:20:        Completed   70.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:21:        Completed   80.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:22:        Completed   90.0 percent of Laplacian assembly.
+ 13-Aug-2018 09:42:23:        Assembling the internal patching/boundary conditions.
+ 13-Aug-2018 09:42:25:  Beginning solver setup.
+ 13-Aug-2018 09:42:25:  Assembling/factoring block-diagonal part of the Poisson operator.
+ 13-Aug-2018 09:42:25:     Computing Schur factorization of the A-matrix.
+ 13-Aug-2018 09:42:25:        Completed   16.7 percent of factorization.
+ 13-Aug-2018 09:43:32:        Completed   33.3 percent of factorization.
+ 13-Aug-2018 09:44:38:        Completed   50.0 percent of factorization.
+ 13-Aug-2018 09:45:45:        Completed   66.7 percent of factorization.
+ 13-Aug-2018 09:46:50:        Completed   83.3 percent of factorization.
+ 13-Aug-2018 09:47:55:        Completed  100.0 percent of factorization.
+ 13-Aug-2018 09:49:00:  Assembling the Poisson-Schur matrix for each wavenumber.
+ 13-Aug-2018 09:49:08:     Completed  100.0 percent of Schur assembly.
+ 13-Aug-2018 09:49:08:  Poisson solver setup complete.
+ 13-Aug-2018 09:49:08:  Setting up 3D Block-Jacobi-Schur preconditioner.
+ 13-Aug-2018 09:49:08:  Setting up the 3D deflation-Schur preconditioner.
+ 13-Aug-2018 09:49:08:  Setting up the 3D deflation matrices.
+ 13-Aug-2018 09:49:08:  Setting up capacitance preconditioner.
+ 13-Aug-2018 09:49:08:  Setting up the deflation preconditioner.
+ 13-Aug-2018 09:49:08:  Setting up deflation matrices.
+ 13-Aug-2018 09:49:08:  Computing the left kernel vector of the poisson capacitance problem.
+ 13-Aug-2018 09:49:08:  
+ 13-Aug-2018 09:49:08:        Right null singular value of L is :  0.9657644616D-09
+ 13-Aug-2018 09:49:09:        Right null singular value of C is :  0.2908214800D-09
+ 13-Aug-2018 09:49:09:  
+ 13-Aug-2018 09:49:09:  Starting inverse iteration.
+ 13-Aug-2018 09:49:09:  
+ 13-Aug-2018 09:49:09:        Starting inverse iteration number          1
+ 13-Aug-2018 09:49:09:           shift/sigma:  0.1000000000D-05
+ 13-Aug-2018 09:50:04:           ||u^TL||   :  0.1146341960D-03
+ 13-Aug-2018 09:50:04:           ||u^TC||   :  0.5111419626D-06
+ 13-Aug-2018 09:50:04:           GMRES iter :         26
+ 13-Aug-2018 09:50:04:           GMRES error:  0.6103094286D-11
+ 13-Aug-2018 09:50:04:  
+ 13-Aug-2018 09:50:04:        Starting inverse iteration number          2
+ 13-Aug-2018 09:50:04:           shift/sigma:  0.1000000000D-05
+ 13-Aug-2018 09:50:59:           ||u^TL||   :  0.1468556400D-07
+ 13-Aug-2018 09:50:59:           ||u^TC||   :  0.2581772375D-10
+ 13-Aug-2018 09:50:59:           GMRES iter :         24
+ 13-Aug-2018 09:50:59:           GMRES error:  0.1855802438D-10
+ 13-Aug-2018 09:50:59:  
+ 13-Aug-2018 09:50:59:     Inverse iteration converged with residual:  0.2581772375D-10
+ 13-Aug-2018 09:50:59:     Building the null vector of the Poisson operator.
+ 13-Aug-2018 09:51:00:  
+ 13-Aug-2018 09:51:00:  Computing error in null space computation (slow).
+ 13-Aug-2018 09:51:54:     Error in null space computation:  0.1468556400D-07
+ 13-Aug-2018 09:51:54:     Error in capacitance null space:  0.2581775262D-10
+ 13-Aug-2018 09:51:54:  
+ 13-Aug-2018 09:51:54:  Writing to diagnostics file: cold_bubble_diag.h5
+ 13-Aug-2018 09:51:54:  Total time steps:    20000
+ 13-Aug-2018 09:51:54:  
+ 13-Aug-2018 09:51:54:  Commencing time-stepping.
+ 13-Aug-2018 09:51:54:  
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:     Solving time-step      800
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:     Simulation Time (s)  0.7990000000D-01
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:        substep 0: checking CFL condition.
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:        CFL # in x:  0.9070919620D-02
+ 13-Aug-2018 09:59:34:        CFL # in y:  0.0000000000D+00
+ 13-Aug-2018 09:59:34:        CFL # in z:  0.3730824093D-01
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:        substep 1.1: applying advection.
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:        substep 1.1: applying transport.
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:        substep 2: solving Poisson problem.
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:           Solving the Real Part
+ 13-Aug-2018 09:59:34:  
+ 13-Aug-2018 09:59:34:              Solving the GMRES problem.
+ 13-Aug-2018 09:59:35:               Schur GMRES iterations           :          5
+ 13-Aug-2018 09:59:35:               Schur GMRES residual             :  0.5400567907D-06
+ 13-Aug-2018 09:59:35:              Relative error in GMRES           :  0.5400567907D-06
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:           Skipping Imaginary Part
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:           Rel. L2 error in pressure solve      :  0.1015147276D-03
+ 13-Aug-2018 09:59:35:           Linf error in pressure solve         :  0.4625314556D+00
+ 13-Aug-2018 09:59:35:           Maximum |div(u)| prior to update     :  0.4378647953D-01
+ 13-Aug-2018 09:59:35:                 Maximum |u0*u0'*div(u)|        :  0.1574321672D-05
+ 13-Aug-2018 09:59:35:           Maximum |div(u)| after update        :  0.3713550747D-02
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:        substep 3.1: solving viscous problem.
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:           Viscous solve GMRES iterations (real):          3
+ 13-Aug-2018 09:59:35:           Viscous solve GMRES rel. error (real):  0.8701706194D-06
+ 13-Aug-2018 09:59:35:           Linf error in viscous solve    (real):  0.1056226586D-04
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:        substep 3.2: solving diffusive problem.
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:           Diffusive solve GMRES iters.   (real):          3
+ 13-Aug-2018 09:59:35:           Diffusive solve GMRES rel. err (real):  0.4672454101D-06
+ 13-Aug-2018 09:59:35:           Linf error in diffusive solve  (real):  0.2570412006D-01
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 09:59:35:  
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:     Solving time-step     1600
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:     Simulation Time (s)  0.1599000000D+00
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:        substep 0: checking CFL condition.
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:        CFL # in x:  0.1724236666D-01
+ 13-Aug-2018 10:07:16:        CFL # in y:  0.0000000000D+00
+ 13-Aug-2018 10:07:16:        CFL # in z:  0.7750556855D-01
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:        substep 1.1: applying advection.
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:        substep 1.1: applying transport.
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:        substep 2: solving Poisson problem.
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:           Solving the Real Part
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:              Solving the GMRES problem.
+ 13-Aug-2018 10:07:16:               Schur GMRES iterations           :          5
+ 13-Aug-2018 10:07:16:               Schur GMRES residual             :  0.6567910863D-06
+ 13-Aug-2018 10:07:16:              Relative error in GMRES           :  0.6567910863D-06
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:           Skipping Imaginary Part
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:           Rel. L2 error in pressure solve      :  0.1819396482D-03
+ 13-Aug-2018 10:07:16:           Linf error in pressure solve         :  0.6296637055D+00
+ 13-Aug-2018 10:07:16:           Maximum |div(u)| prior to update     :  0.5020962635D-01
+ 13-Aug-2018 10:07:16:                 Maximum |u0*u0'*div(u)|        :  0.5644614567D-04
+ 13-Aug-2018 10:07:16:           Maximum |div(u)| after update        :  0.3686216603D-02
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:        substep 3.1: solving viscous problem.
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:           Viscous solve GMRES iterations (real):          4
+ 13-Aug-2018 10:07:16:           Viscous solve GMRES rel. error (real):  0.1429806581D-07
+ 13-Aug-2018 10:07:16:           Linf error in viscous solve    (real):  0.1736187749D-05
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:        substep 3.2: solving diffusive problem.
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:           Diffusive solve GMRES iters.   (real):          3
+ 13-Aug-2018 10:07:16:           Diffusive solve GMRES rel. err (real):  0.9625168409D-06
+ 13-Aug-2018 10:07:16:           Linf error in diffusive solve  (real):  0.4534222633D-01
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:07:16:  
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:     Solving time-step     2400
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:     Simulation Time (s)  0.2399000000D+00
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:        substep 0: checking CFL condition.
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:        CFL # in x:  0.2298186910D-01
+ 13-Aug-2018 10:15:00:        CFL # in y:  0.0000000000D+00
+ 13-Aug-2018 10:15:00:        CFL # in z:  0.1159587627D+00
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:        substep 1.1: applying advection.
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:        substep 1.1: applying transport.
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:        substep 2: solving Poisson problem.
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:           Solving the Real Part
+ 13-Aug-2018 10:15:00:  
+ 13-Aug-2018 10:15:00:              Solving the GMRES problem.
+ 13-Aug-2018 10:15:01:               Schur GMRES iterations           :          5
+ 13-Aug-2018 10:15:01:               Schur GMRES residual             :  0.4071570804D-06
+ 13-Aug-2018 10:15:01:              Relative error in GMRES           :  0.4071570803D-06
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:           Skipping Imaginary Part
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:           Rel. L2 error in pressure solve      :  0.1927608704D-03
+ 13-Aug-2018 10:15:01:           Linf error in pressure solve         :  0.6838408031D+00
+ 13-Aug-2018 10:15:01:           Maximum |div(u)| prior to update     :  0.5332830174D-01
+ 13-Aug-2018 10:15:01:                 Maximum |u0*u0'*div(u)|        :  0.2045721086D-03
+ 13-Aug-2018 10:15:01:           Maximum |div(u)| after update        :  0.1328462616D-01
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:        substep 3.1: solving viscous problem.
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:           Viscous solve GMRES iterations (real):          4
+ 13-Aug-2018 10:15:01:           Viscous solve GMRES rel. error (real):  0.3398384473D-07
+ 13-Aug-2018 10:15:01:           Linf error in viscous solve    (real):  0.8300519744D-05
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:        substep 3.2: solving diffusive problem.
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:           Diffusive solve GMRES iters.   (real):          4
+ 13-Aug-2018 10:15:01:           Diffusive solve GMRES rel. err (real):  0.1002290627D-07
+ 13-Aug-2018 10:15:01:           Linf error in diffusive solve  (real):  0.1818790848D-02
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:15:01:  
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:     Solving time-step     3200
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:     Simulation Time (s)  0.3199000000D+00
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:        substep 0: checking CFL condition.
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:        CFL # in x:  0.2910484645D-01
+ 13-Aug-2018 10:22:47:        CFL # in y:  0.0000000000D+00
+ 13-Aug-2018 10:22:47:        CFL # in z:  0.1414818990D+00
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:        substep 1.1: applying advection.
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:        substep 1.1: applying transport.
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:        substep 2: solving Poisson problem.
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:           Solving the Real Part
+ 13-Aug-2018 10:22:47:  
+ 13-Aug-2018 10:22:47:              Solving the GMRES problem.
+ 13-Aug-2018 10:22:47:               Schur GMRES iterations           :          6
+ 13-Aug-2018 10:22:47:               Schur GMRES residual             :  0.4001714485D-06
+ 13-Aug-2018 10:22:47:              Relative error in GMRES           :  0.4001714485D-06
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:           Skipping Imaginary Part
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:           Rel. L2 error in pressure solve      :  0.3168615412D-03
+ 13-Aug-2018 10:22:48:           Linf error in pressure solve         :  0.6580652804D+00
+ 13-Aug-2018 10:22:48:           Maximum |div(u)| prior to update     :  0.1823497685D+00
+ 13-Aug-2018 10:22:48:                 Maximum |u0*u0'*div(u)|        :  0.4132201987D-03
+ 13-Aug-2018 10:22:48:           Maximum |div(u)| after update        :  0.4649880945D-01
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:        substep 3.1: solving viscous problem.
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:           Viscous solve GMRES iterations (real):          4
+ 13-Aug-2018 10:22:48:           Viscous solve GMRES rel. error (real):  0.9946091634D-07
+ 13-Aug-2018 10:22:48:           Linf error in viscous solve    (real):  0.3622582067D-04
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:        substep 3.2: solving diffusive problem.
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:           Diffusive solve GMRES iters.   (real):          4
+ 13-Aug-2018 10:22:48:           Diffusive solve GMRES rel. err (real):  0.1901704859D-07
+ 13-Aug-2018 10:22:48:           Linf error in diffusive solve  (real):  0.2999064472D-02
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:22:48:  
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:     Solving time-step     4000
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:     Simulation Time (s)  0.3999000000D+00
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:        substep 0: checking CFL condition.
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:        CFL # in x:  0.4405540522D-01
+ 13-Aug-2018 10:30:35:        CFL # in y:  0.0000000000D+00
+ 13-Aug-2018 10:30:35:        CFL # in z:  0.1541247981D+00
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:        substep 1.1: applying advection.
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:        substep 1.1: applying transport.
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:        substep 2: solving Poisson problem.
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:35:           Solving the Real Part
+ 13-Aug-2018 10:30:35:  
+ 13-Aug-2018 10:30:36:              Solving the GMRES problem.
+ 13-Aug-2018 10:30:36:               Schur GMRES iterations           :          6
+ 13-Aug-2018 10:30:36:               Schur GMRES residual             :  0.4667543413D-06
+ 13-Aug-2018 10:30:36:              Relative error in GMRES           :  0.4667543413D-06
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:           Skipping Imaginary Part
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:           Rel. L2 error in pressure solve      :  0.3315987075D-03
+ 13-Aug-2018 10:30:36:           Linf error in pressure solve         :  0.1313348346D+01
+ 13-Aug-2018 10:30:36:           Maximum |div(u)| prior to update     :  0.3027953508D+00
+ 13-Aug-2018 10:30:36:                 Maximum |u0*u0'*div(u)|        :  0.8700463838D-03
+ 13-Aug-2018 10:30:36:           Maximum |div(u)| after update        :  0.1025021773D+00
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:        substep 3.1: solving viscous problem.
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:           Viscous solve GMRES iterations (real):          4
+ 13-Aug-2018 10:30:36:           Viscous solve GMRES rel. error (real):  0.2107055041D-06
+ 13-Aug-2018 10:30:36:           Linf error in viscous solve    (real):  0.8938529462D-04
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:        substep 3.2: solving diffusive problem.
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:           Diffusive solve GMRES iters.   (real):          4
+ 13-Aug-2018 10:30:36:           Diffusive solve GMRES rel. err (real):  0.4367133632D-06
+ 13-Aug-2018 10:30:36:           Linf error in diffusive solve  (real):  0.1032776488D+00
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:30:36:     Writing restart file
+ 13-Aug-2018 10:30:36:  
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:     Solving time-step     4800
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:     Simulation Time (s)  0.4799000000D+00
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:        substep 0: checking CFL condition.
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:        CFL # in x:  0.6500258046D-01
+ 13-Aug-2018 10:38:32:        CFL # in y:  0.0000000000D+00
+ 13-Aug-2018 10:38:32:        CFL # in z:  0.1656900322D+00
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:        substep 1.1: applying advection.
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:        substep 1.1: applying transport.
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:        substep 2: solving Poisson problem.
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:           Solving the Real Part
+ 13-Aug-2018 10:38:32:  
+ 13-Aug-2018 10:38:32:              Solving the GMRES problem.
+ 13-Aug-2018 10:38:32:               Schur GMRES iterations           :          7
+ 13-Aug-2018 10:38:32:               Schur GMRES residual             :  0.6865644938D-06
+ 13-Aug-2018 10:38:32:              Relative error in GMRES           :  0.6865644937D-06
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:           Skipping Imaginary Part
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:           Rel. L2 error in pressure solve      :  0.2404049373D-03
+ 13-Aug-2018 10:38:33:           Linf error in pressure solve         :  0.2889583174D+01
+ 13-Aug-2018 10:38:33:           Maximum |div(u)| prior to update     :  0.2435326363D+01
+ 13-Aug-2018 10:38:33:                 Maximum |u0*u0'*div(u)|        :  0.9346521104D-03
+ 13-Aug-2018 10:38:33:           Maximum |div(u)| after update        :  0.1125036125D+01
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:        substep 3.1: solving viscous problem.
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:           Viscous solve GMRES iterations (real):          5
+ 13-Aug-2018 10:38:33:           Viscous solve GMRES rel. error (real):  0.2435543368D-08
+ 13-Aug-2018 10:38:33:           Linf error in viscous solve    (real):  0.6829809500D-06
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:        substep 3.2: solving diffusive problem.
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:           Diffusive solve GMRES iters.   (real):          5
+ 13-Aug-2018 10:38:33:           Diffusive solve GMRES rel. err (real):  0.1883606349D-08
+ 13-Aug-2018 10:38:33:           Linf error in diffusive solve  (real):  0.2605288737D-03
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:38:33:  
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:     Solving time-step     5600
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:     Simulation Time (s)  0.5599000000D+00
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:        substep 0: checking CFL condition.
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:        CFL # in x:  0.6319131048D-01
+ 13-Aug-2018 10:46:35:        CFL # in y:  0.0000000000D+00
+ 13-Aug-2018 10:46:35:        CFL # in z:  0.1874950833D+00
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:        substep 1.1: applying advection.
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:        substep 1.1: applying transport.
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:        substep 2: solving Poisson problem.
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:           Solving the Real Part
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:              Solving the GMRES problem.
+ 13-Aug-2018 10:46:35:               Schur GMRES iterations           :          7
+ 13-Aug-2018 10:46:35:               Schur GMRES residual             :  0.3919263481D-06
+ 13-Aug-2018 10:46:35:              Relative error in GMRES           :  0.3919263481D-06
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:           Skipping Imaginary Part
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:           Rel. L2 error in pressure solve      :  0.4074755732D-04
+ 13-Aug-2018 10:46:35:           Linf error in pressure solve         :  0.9269855955D+00
+ 13-Aug-2018 10:46:35:           Maximum |div(u)| prior to update     :  0.1455315635D+02
+ 13-Aug-2018 10:46:35:                 Maximum |u0*u0'*div(u)|        :  0.1299381240D-02
+ 13-Aug-2018 10:46:35:           Maximum |div(u)| after update        :  0.8173823138D+01
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:        substep 3.1: solving viscous problem.
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:           Viscous solve GMRES iterations (real):          5
+ 13-Aug-2018 10:46:35:           Viscous solve GMRES rel. error (real):  0.6675118164D-08
+ 13-Aug-2018 10:46:35:           Linf error in viscous solve    (real):  0.3320505207D-05
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:        substep 3.2: solving diffusive problem.
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:           Diffusive solve GMRES iters.   (real):          5
+ 13-Aug-2018 10:46:35:           Diffusive solve GMRES rel. err (real):  0.9073237158D-08
+ 13-Aug-2018 10:46:35:           Linf error in diffusive solve  (real):  0.3817296621D-02
+ 13-Aug-2018 10:46:35:  
+ 13-Aug-2018 10:46:35:  
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 0 with PID 1208 on node cornell-RBTG exited on signal 8 (Floating point exception).
+--------------------------------------------------------------------------

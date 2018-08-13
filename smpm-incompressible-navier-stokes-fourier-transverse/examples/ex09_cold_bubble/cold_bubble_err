@@ -1,0 +1,12 @@
+
+Program received signal SIGFPE: Floating-point exception - erroneous arithmetic operation.
+
+Backtrace for this error:
+#0  0x14AAB3510E08
+#1  0x14AAB350FF90
+#2  0x14AAB28024AF
+#3  0x51FDF3 in get_householder_parallel_ at compute_gmres_householder.f90:413 (discriminator 16)
+#4  0x52278E in compute_gmres_householder_ at compute_gmres_householder.f90:387 (discriminator 4)
+#5  0x5F0A63 in solve_3d_poisson_iteratively_ at solve_3D_poisson_iteratively.f90:93
+#6  0x5E95F7 in solve_3d_pressure_ at solve_3D_pressure.f90:65
+#7  0x5776F3 in MAIN__ at main.f90:621 (discriminator 2)

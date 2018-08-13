@@ -1,0 +1,33 @@
+#####################
+# Input file for SMPM code.
+# Generated: 12-Aug-2018 15:11:05
+#####################
+fname_runname                  = cold_bubble
+fname_init                     = cold_bubble_init.h5
+n                              = 10
+nsubx                          = 24
+nsuby                          = 1
+nsubz                          = 24
+dt                             = 0.0001
+tend                           = 2
+timesteps_between_writes       = 333
+timesteps_between_restarts     = 2000
+timesteps_between_logs         = 800
+nu                             = 0.0002
+nu_d                           = 0.0002
+rho_0                          = 1000
+facrobin                       = 10000
+facrobin_ppe                   = 100
+filter_order_xz                = 11
+filter_order_y                 = 11
+gmres_maxit_poisson            = 1000
+gmres_maxit_viscous            = 200
+gmres_tol_poisson              = 1e-06
+gmres_tol_viscous              = 1e-06
+bc_diffusion                   = 1,1,1,1
+bc_viscous                     = 1,1,1,1
+read_bcs_from_initfile         = .true.
+check_null_error               = .true.
+check_numerical_error          = .true.
+use_capacitance_preconditioner = .true.
+use_deflation                  = .true.
